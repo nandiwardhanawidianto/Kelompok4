@@ -9,7 +9,7 @@
 <!-- Table -->
 <div class="mx-auto" style="width: 75%; margin-top: 50px; margin-bottom: 50px;">
     <h3 style="text-align: center;">Daftar Obat</h3>
-    <?php if ($this->session->userdata('role'=="admin")) { ?>
+    <?php if ($this->session->userdata('role')=="admin") { ?>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add_obat" style="margin-bottom: 15px">Tambah Data Obat</button>
     <?php } ?>
     <table class="table table-hover table-dark" style="margin-top: 25px;" id="table">
@@ -19,7 +19,7 @@
                 <th scope="col">Golongan</th>
                 <th scope="col">Kategori</th>
                 <th scope="col">Bentuk</th>
-                <?php if ($this->session->userdata('role'=="admin")) { ?>
+                <?php if ($this->session->userdata('role')=="admin") { ?>
                     <th scope="col">Control</th>
                 <?php } ?>
             </tr>
@@ -31,7 +31,7 @@
                     <td><?php echo $dat->golongan ?></td>
                     <td><?php echo $dat->kategori ?></td>
                     <td><?php echo $dat->bentuk ?></td>
-                    <?php if ($this->session->userdata('role'=="admin")) { ?>
+                    <?php if ($this->session->userdata('role')=="admin") { ?>
                         <td>
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit<?php echo $dat->id_obat ?>">Edit</button>
                             <a type="button" class="btn btn-danger" href="<?php echo base_url(); ?>index.php/obat_con/delete_obat/<?php echo $dat->id_obat ?>" onClick="return confirm('Apakah Anda Yakin?')">Hapus</a>

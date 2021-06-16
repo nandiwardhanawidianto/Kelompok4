@@ -9,7 +9,7 @@
 <!-- Table -->
 <div class="mx-auto" style="width: 75%; margin-top: 50px; margin-bottom: 50px;">
     <h3 style="text-align: center;">Daftar Penyakit</h3>
-    <?php if ($this->session->userdata('role'=="admin")) { ?>
+    <?php if ($this->session->userdata('role')=="admin") { ?>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add_penyakit" style="margin-bottom: 15px">Tambah Data Penyakit</button>
     <?php } ?>
     <table class="table table-hover table-dark" style="margin-top: 25px;" id="table">
@@ -19,7 +19,7 @@
                 <th scope="col">Gejala</th>
                 <th scope="col">Tingat Berbahaya</th>
                 <th scope="col">Obat</th>
-                <?php if ($this->session->userdata('role'=='admin')) { ?>
+                <?php if ($this->session->userdata('role')=='admin') { ?>
                     <th scope="col">Control</th>
                 <?php } ?>
             </tr>
@@ -31,7 +31,7 @@
                     <td><?php echo $dat->gejala ?></td>
                     <td><?php echo $dat->tingkat_berbahaya ?></td>
                     <td><?php echo $dat->obat ?></td>
-                    <?php if ($this->session->userdata('role'=="admin")) { ?>
+                    <?php if ($this->session->userdata('role')=="admin") { ?>
                         <td>
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit<?php echo $dat->id_penyakit ?>">Edit</button>
                             <a type="button" class="btn btn-danger" href="<?php echo base_url(); ?>index.php/penyakit_con/delete_penyakit/<?php echo $dat->id_penyakit ?>" onClick="return confirm('Apakah Anda Yakin?')">Hapus</a>

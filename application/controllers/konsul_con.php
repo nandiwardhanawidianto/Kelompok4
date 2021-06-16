@@ -7,7 +7,7 @@ class konsul_con extends CI_Controller {
  	{
 		 parent::__construct();
 		 $this->load->model("konsul_model");
-		date_default_timezone_set('Asia/Jakarta');
+		 date_default_timezone_set('Asia/Jakarta');
     }
 
     public function index()

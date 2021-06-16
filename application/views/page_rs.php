@@ -9,7 +9,7 @@
 <!-- Table -->
 <div class="mx-auto" style="width: 75%; margin-top: 50px; margin-bottom: 50px;">
     <h3 style="text-align: center;">Daftar Rumah Sakit</h3>
-    <?php if ($this->session->userdata('role'=='admin')) { ?>
+    <?php if ($this->session->userdata('role')=='admin') { ?>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add_rs" style="margin-bottom: 15px">Tambah Data Rumah Sakit</button>
     <?php } ?>
     <table class="table table-hover table-dark" style="margin-top: 25px;" id="table">
@@ -19,7 +19,7 @@
                 <th scope="col">Provinsi</th>
                 <th scope="col">Alamat</th>
                 <th scope="col">No-Telp</th>
-                <?php if ($this->session->userdata('role'=='admin')) { ?>
+                <?php if ($this->session->userdata('role')=='admin') { ?>
                     <th scope="col">Control</th>
                 <?php } ?>
             </tr>
@@ -31,7 +31,7 @@
                     <td><?php echo $dat->provinsi ?></td>
                     <td><?php echo $dat->alamat ?></td>
                     <td><?php echo $dat->no_telp ?></td>
-                    <?php if ($this->session->userdata('role'=='admin')) { ?>
+                    <?php if ($this->session->userdata('role')=='admin') { ?>
                         <td>
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit<?php echo $dat->id_rs ?>">Edit</button>
                             <a type="button" class="btn btn-danger" href="<?php echo base_url(); ?>index.php/rs_con/delete_rs/<?php echo $dat->id_rs ?>" onClick="return confirm('Apakah Anda Yakin?')">Hapus</a>
