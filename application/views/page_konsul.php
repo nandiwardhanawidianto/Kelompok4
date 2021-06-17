@@ -13,9 +13,7 @@
                 <th scope="col">Nama Pasien</th>
                 <th scope="col">Alamat</th>
                 <th scope="col">Konsul</th>
-                <?php if ($this->session->userdata('role')=='admin') { ?>
-                    <th scope="col">Control</th>
-                <?php } ?>
+                <th scope="col">Control</th>
             </tr>
         </thead>
         <tbody>

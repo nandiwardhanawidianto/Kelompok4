@@ -50,7 +50,9 @@ class konsul_con extends CI_Controller {
 			"nama" => $this->input->post('nama', true),
 			"alamat" => $this->input->post('alamat', true),
 			"konsul" => $this->input->post('konsul', true),
+			"username" =>$this->session->userdata('username'),
 		];
+		$this->konsul_model->edit_konsul($id_konsul,$data);
 		if ($this->session->userdata('role')=="admin") {
 			redirect('index.php/konsul_con/index');
 		}elseif ($this->session->userdata('role')=="user") {

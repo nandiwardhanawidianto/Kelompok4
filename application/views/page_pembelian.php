@@ -174,9 +174,14 @@
 </div>
 
 <div id ="container"> 
-    <button id=btnchekout> Chekout</button>
+<button onclick="myFunction()">Chekout</button>
 </div>
 
+<script>
+function myFunction() {
+  alert("Chekout Berhasil");
+}
+</script>
 
 </div><!-- container -->
 <script type="text/javascript">
