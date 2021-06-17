@@ -19,21 +19,24 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
     <script src="http://maps.googleapis.com/maps/api/js"></script>
-    <script>
-        // fungsi initialize untuk mempersiapkan peta
-        function initialize() {
-        var propertiPeta = {
-            center:new google.maps.LatLng(-8.5830695,116.3202515),
-            zoom:9,
-            mapTypeId:google.maps.MapTypeId.ROADMAP
-        };
-        
-        var peta = new google.maps.Map(document.getElementById("googleMap"), propertiPeta);
-        }
+   
+    <!-- bowo -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
 
-        // event jendela di-load  
-        google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/leaflet/leaflet.css">
+    <script src="<?=base_url()?>assets/leaflet/leaflet.js"></script>
+
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+
+    <style type="text/css">
+        #mapid { height: 280px; }
+    </style>
+    
 </head>
 
 <body>
@@ -45,6 +48,8 @@
         </button>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                    <a class="nav-link">SELAMAT DATANG <?php echo $this->session->userdata('username'); ?>   ||</a>
                 <li class="nav-item active">
                     <a class="nav-link" href="<?php echo base_url(); ?>index.php/main_con/index2">Home</a>
                 <!-- tambah edit controller -->

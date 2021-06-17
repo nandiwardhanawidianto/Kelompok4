@@ -121,8 +121,29 @@
         </div>
     </div>
 <?php } ?>
-<div id="googleMap" style="width:100%;height:380px;"></div>
 
+<!--<div id="googleMap" style="width:100%;height:380px;"></div>-->
+<h1 class="text-center">Map</h1>
+<div class="row">
+    <div class="col-md-12">
+        <div id="mapid"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+        var map = L.map('mapid').setView([51.505, -0.09], 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        L.marker([-6.2693167746761365, 106.82539089196683]).addTo(map)
+            .bindPopup('RSUPN DR.Sucipto.<br> Jakarta.')
+            .openPopup();
+        L.marker([-6.283682414792989, 106.78156229826068]).addTo(map)
+            .bindPopup('RS pondok indah.<br> Jakarta.')
+            .openPopup();
+</script>
 <script type="text/javascript">
 $(document).ready( function () {
     $('#table').DataTable();

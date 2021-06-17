@@ -33,9 +33,14 @@ class konsul_con extends CI_Controller {
 			"nama" => $this->input->post('nama', true),
 			"alamat" => $this->input->post('alamat', true),
 			"konsul" => $this->input->post('konsul', true),
+			"username" =>$this->session->userdata('username'),
 		];
 		$this->konsul_model->add_konsul($data);
-		redirect('index.php/konsul_con/index');
+		if ($this->session->userdata('role')=="admin") {
+			redirect('index.php/konsul_con/index');
+		}elseif ($this->session->userdata('role')=="user") {
+			redirect('index.php/konsul_con/index2');
+		};
     }
     
     public function edit_konsul()
@@ -46,13 +51,20 @@ class konsul_con extends CI_Controller {
 			"alamat" => $this->input->post('alamat', true),
 			"konsul" => $this->input->post('konsul', true),
 		];
-		$this->konsul_model->edit_konsul($id_konsul, $data);
-		redirect('index.php/konsul_con/index');
+		if ($this->session->userdata('role')=="admin") {
+			redirect('index.php/konsul_con/index');
+		}elseif ($this->session->userdata('role')=="user") {
+			redirect('index.php/konsul_con/index2');
+		};
 	}
 
     public function delete_konsul($id_konsul)
 	{
 		$this->konsul_model->delete_konsul($id_konsul);
-		redirect('index.php/konsul_con/index');
+		if ($this->session->userdata('role')=="admin") {
+			redirect('index.php/konsul_con/index');
+		}elseif ($this->session->userdata('role')=="user") {
+			redirect('index.php/konsul_con/index2');
+		};
 	}
 }

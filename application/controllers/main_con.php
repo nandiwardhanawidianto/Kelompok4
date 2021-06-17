@@ -55,6 +55,7 @@ class main_con extends CI_Controller {
 		$data = ['username' => $this->input->post('username'), 'password' => $this->input->post('password')];
 		if ($this->main_model->ceklogin($data)) {
 			$this->session->set_userdata('role',$this->main_model->login($data));
+			$this->session->set_userdata('username',$data['username']);
 			if ($this->session->userdata('role')=="admin") {
 				redirect('index.php/main_con/index');
 			}elseif ($this->session->userdata('role')=="user") {

@@ -2,9 +2,11 @@
 <!-- Table -->
 <div class="mx-auto" style="width: 75%; margin-top: 50px; margin-bottom: 50px;">
     <h3 style="text-align: center;">Daftar Konsul</h3>
-    <?php if ($this->session->userdata('role')=='admin') { ?>
+	<?php if ($this->session->userdata('role')=="admin") { ?>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add_konsul" style="margin-bottom: 15px">Tambah Data Konsul</button>
-    <?php } ?>
+	<?php } else { ?>
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add_konsul" style="margin-bottom: 15px">Tambah Data Konsul user</button>
+	<?php }; ?>
     <table class="table table-hover table-dark" style="margin-top: 25px;" id="table">
         <thead class="thead-dark">       
             <tr>
@@ -22,7 +24,7 @@
                     <td><?php echo $dat->nama ?></td>
                     <td><?php echo $dat->alamat ?></td>
                     <td><?php echo $dat->konsul ?></td>
-                    <?php if ($this->session->userdata('role')=='admin') { ?>
+                    <?php if ($this->session->userdata('username')==$dat->username) { ?>
                         <td>
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit<?php echo $dat->id_konsul ?>">Edit</button>
                             <a type="button" class="btn btn-danger" href="<?php echo base_url(); ?>index.php/konsul_con/delete_konsul/<?php echo $dat->id_konsul ?>" onClick="return confirm('Apakah Anda Yakin?')">Hapus</a>
