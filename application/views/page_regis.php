@@ -13,8 +13,8 @@
     </head>
 	
 	<body>
-		<form method="post" action="<?php echo base_url(); ?>index.php/main_con/regis_admin">
-			<h2>Regiis</h2>
+		<form method="post" action="<?php echo base_url(); ?>index.php/main_con/regis_user">
+			<h2>Registrasi</h2>
             <?php if (isset($error_message)) { ?>
 			<div class="alert alert-danger" role="alert">
 				<?= $error_message ?>

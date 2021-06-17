@@ -25,6 +25,15 @@ class pembelian_con extends CI_Controller {
 			$this->load->view('page_pembelian', ['data'=>$data_obat]);
 			$this->load->view('footer');
     }
+	public function tes()
+	{
+			
+			$data_obat = $this->pembelian_model->get_obat();
+			$this->load->view('header2');
+			$this->load->view('payment',['data'=>$data_obat]);
+			$this->load->view('footer');
+    }
+
 
     public function add_obat()
 	{

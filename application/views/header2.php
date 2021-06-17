@@ -61,7 +61,7 @@
                     <a class="nav-link" href="<?php echo base_url(); ?>index.php/konsul_con/index2">Konsultasi</a>
                 <li class="nav-item active">
                     <a class="nav-link" href="<?php echo base_url(); ?>index.php/main_con/about">About</a>
-                <?php if ($this->session->userdata('role'=="user")) { ?>
+                <?php if ($this->session->userdata('role')=="user") { ?>
                     <li class="nav-item active">
                         <a class="nav-link" href="<?php echo base_url(); ?>index.php/main_con/logout">Logout</a>
                 <?php } else { ?>

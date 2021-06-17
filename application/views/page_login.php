@@ -35,7 +35,7 @@
 				<input type="password" class="form-control" name="password" placeholder="Password" required>
 			</div>
 			<button type="submit" class="btn btn-primary">Login</button>
-            <a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/main_con/regis_user">Daftar</a>
+            <a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/main_con/regis">Daftar</a>
 		</form>
         
         <!-- Optional JavaScript -->
