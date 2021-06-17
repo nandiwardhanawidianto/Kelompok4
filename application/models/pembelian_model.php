@@ -15,6 +15,11 @@ class pembelian_model extends CI_Model {
 		return $this->db->insert("obat", $data);
     }
     
+	public function add_pesanan($data)
+	{
+		return $this->db->insert("list_pembelian_barang", $data);
+    }
+    
     // edit obat
 	public function edit_obat($id_obat, $data)
 	{
@@ -29,11 +34,16 @@ class pembelian_model extends CI_Model {
 		return $this->db->delete("obat", array("id_obat" => $id_obat));
     }
 
+	public function insert_pesanan($data)
+	{
+		return $this->db->insert("obat", $data);
+    }
+
 	//list pembelian
 	public function list_pembeli()
 	{
 		$this->db->select('*');
-		$this->db->from('list');
+		$this->db->from('list_pembelian_barang');
 		return $this->db->get()->result();
     }
 }

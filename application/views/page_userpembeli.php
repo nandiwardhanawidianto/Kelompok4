@@ -40,12 +40,14 @@
         </thead>
         <tbody>
             <?php $id = 1; foreach ($data as $dat) { ?>
+                <?php if ($this->session->userdata('username')==$dat->username) { ?>
                 <tr>
                     <td><?php echo $dat->username ?></td>
                     <td><?php echo $dat->nama_obat ?></td>
                     <td><?php echo $dat->jumlah ?></td>
                     <td><?php echo $dat->harga ?></td>
                 </tr>
+                <?php } ?>
             <?php } ?>
         </tbody>
         

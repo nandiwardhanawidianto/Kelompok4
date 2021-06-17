@@ -25,6 +25,15 @@ class pembelian_con extends CI_Controller {
 			$this->load->view('page_pembelian', ['data'=>$data_obat]);
 			$this->load->view('footer');
     }
+
+	public function index3()
+	{
+			$data_obat = $this->pembelian_model->list_pembeli();
+			$this->load->view('header2');
+			$this->load->view('page_userpembeli', ['data'=>$data_obat]);
+			$this->load->view('footer');
+    }
+
 	public function tes()
 	{
 			
@@ -33,8 +42,19 @@ class pembelian_con extends CI_Controller {
 			$this->load->view('payment',['data'=>$data_obat]);
 			$this->load->view('footer');
     }
+	
+	function add_to_cart(){ //fungsi Add To Cart
+        $data = array(
+            'obat' => $this->input->post('obat'), 
+            'jumlah' => $this->input->post('jumlah'), 
+            'harga' => $this->input->post('harga'), 
+        );
+        $this->cart->insert($data);
+	}
 
-
+	function load_cart(){ //load data cart
+        echo $this->show_cart();
+    }
     public function add_obat()
 	{
 		$data = [
@@ -45,6 +65,18 @@ class pembelian_con extends CI_Controller {
 		];
 		$this->obat_model->add_obat($data);
 		redirect('index.php/pembelian_con/index');
+    }
+
+	public function add_pesanan() //load data cart//load data cart//load data cart//load data cart//load data cart//load data cart
+	{
+		$data = [
+			"username" => $this->session->userdata('username'),
+			"nama_obat" => $this->input->post('ovvat', true),
+			"jumlah" => $this->input->post('jumllah', true),
+			"harga" => $this->input->post('hargaa', true),
+		];
+		$this->pembelian_model->add_pesanan($data);
+		redirect('index.php/pembelian_con/index2');
     }
     
     public function edit_obat()
